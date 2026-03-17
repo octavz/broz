@@ -5,7 +5,7 @@ import ContactFormClient from '@/components/ContactFormClient'
 import { getAllMarkdown, markdownToHtml } from '@/lib/markdown'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const contactPage = await getAllMarkdown().then(data => data.find(page => page.slug === 'contact'))
+  const contactPage = await getAllMarkdown('ro').then(data => data.find(page => page.slug === 'contact'))
   
   return {
     title: contactPage?.title || 'Contact',
@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ContactPage() {
-  const contactPage = await getAllMarkdown().then(data => data.find(page => page.slug === 'contact'))
+  const contactPage = await getAllMarkdown('ro').then(data => data.find(page => page.slug === 'contact'))
   
   if (!contactPage) {
     return (

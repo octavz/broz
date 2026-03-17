@@ -4,7 +4,7 @@ import MarkdownRenderer from '@/components/MarkdownRenderer'
 import { getAllMarkdown, markdownToHtml } from '@/lib/markdown'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const servicesPage = await getAllMarkdown().then(data => data.find(page => page.slug === 'servicii'))
+  const servicesPage = await getAllMarkdown('ro').then(data => data.find(page => page.slug === 'servicii'))
   
   return {
     title: servicesPage?.title || 'Servicii',
@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ServicesPage() {
-  const servicesPage = await getAllMarkdown().then(data => data.find(page => page.slug === 'servicii'))
+  const servicesPage = await getAllMarkdown('ro').then(data => data.find(page => page.slug === 'servicii'))
   
   if (!servicesPage) {
     return (
