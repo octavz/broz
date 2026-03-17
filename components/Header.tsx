@@ -84,13 +84,13 @@ export default function Header() {
         <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <Link href={isEnglish ? '/en/' : '/'} className="flex items-center space-x-4">
-            <div className="relative h-16 w-16">
+            <div className="relative h-16 w-16 overflow-hidden rounded">
               <Image
                 src="/logo-broz.png"
                 alt="Centrala Termică Service"
-                width={64}
-                height={64}
-                className="object-contain"
+                fill
+                className="object-contain object-top"
+                style={{ objectPosition: 'center top' }}
               />
             </div>
             <span className="text-2xl font-bold text-primary-700 hidden sm:block">
