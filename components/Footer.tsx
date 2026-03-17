@@ -7,27 +7,29 @@ interface ServiceItem {
   id: string
   labelRo: string
   labelEn: string
-  href: string
+  hrefRo: string
+  hrefEn: string
 }
 
 interface NavItem {
   id: string
   labelRo: string
   labelEn: string
-  href: string
+  hrefRo: string
+  hrefEn: string
 }
 
 const navigation = {
   servicii: [
-    { id: 'emergency', labelRo: 'Reparații de Urgență', labelEn: 'Emergency Repairs', hrefRo: '/servicii/#urgenta', hrefEn: '/services/#urgenta' },
-    { id: 'maintenance', labelRo: 'Întreținere Preventivă', labelEn: 'Preventive Maintenance', hrefRo: '/servicii/#intretinere', hrefEn: '/services/#intretinere' },
-    { id: 'installation', labelRo: 'Instalare și Înlocuire', labelEn: 'Installation and Replacement', hrefRo: '/servicii/#instalare', hrefEn: '/services/#instalare' },
-    { id: 'consultation', labelRo: 'Consultanță Tehnică', labelEn: 'Technical Consultation', hrefRo: '/servicii/#consultanta', hrefEn: '/services/#consultanta' },
+    { id: 'emergency', labelRo: 'Reparații de Urgență', labelEn: 'Emergency Repairs', hrefRo: '/servicii/#urgenta', hrefEn: '/en/services/#urgenta' },
+    { id: 'maintenance', labelRo: 'Întreținere Preventivă', labelEn: 'Preventive Maintenance', hrefRo: '/servicii/#intretinere', hrefEn: '/en/services/#intretinere' },
+    { id: 'installation', labelRo: 'Instalare și Înlocuire', labelEn: 'Installation and Replacement', hrefRo: '/servicii/#instalare', hrefEn: '/en/services/#instalare' },
+    { id: 'consultation', labelRo: 'Consultanță Tehnică', labelEn: 'Technical Consultation', hrefRo: '/servicii/#consultanta', hrefEn: '/en/services/#consultanta' },
   ],
   companie: [
-    { id: 'about', labelRo: 'Despre Noi', labelEn: 'About Us', hrefRo: '/despre-noi/', hrefEn: '/about/' },
-    { id: 'services', labelRo: 'Servicii', labelEn: 'Services', hrefRo: '/servicii/', hrefEn: '/services/' },
-    { id: 'contact', labelRo: 'Contact', labelEn: 'Contact', hrefRo: '/contact/', hrefEn: '/contact/' },
+    { id: 'about', labelRo: 'Despre Noi', labelEn: 'About Us', hrefRo: '/despre-noi/', hrefEn: '/en/about/' },
+    { id: 'services', labelRo: 'Servicii', labelEn: 'Services', hrefRo: '/servicii/', hrefEn: '/en/services/' },
+    { id: 'contact', labelRo: 'Contact', labelEn: 'Contact', hrefRo: '/contact/', hrefEn: '/en/contact/' },
   ],
 }
 
@@ -42,14 +44,6 @@ export default function Footer() {
   const pathname = usePathname()
   const isEnglish = pathname.startsWith('/en')
   
-  const getLocalizedPath = (href: string) => {
-    if (href === '/') {
-      return isEnglish ? '/en/' : '/'
-    }
-    const normalizedHref = href.startsWith('/') ? href : `/${href}`
-    return isEnglish ? `/en${normalizedHref}` : normalizedHref
-  }
-
   const getLabel = (item: { labelRo: string; labelEn: string }) => {
     return isEnglish ? item.labelEn : item.labelRo
   }

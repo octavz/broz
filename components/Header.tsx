@@ -9,14 +9,15 @@ interface NavItem {
   id: string
   labelRo: string
   labelEn: string
-  href: string
+  hrefRo: string
+  hrefEn: string
 }
 
 const navigation: NavItem[] = [
-  { id: 'home', labelRo: 'Acasă', labelEn: 'Home', href: '/' },
-  { id: 'about', labelRo: 'Despre Noi', labelEn: 'About Us', href: '/despre-noi/' },
-  { id: 'services', labelRo: 'Servicii', labelEn: 'Services', href: '/servicii/' },
-  { id: 'contact', labelRo: 'Contact', labelEn: 'Contact', href: '/contact/' },
+  { id: 'home', labelRo: 'Acasă', labelEn: 'Home', hrefRo: '/', hrefEn: '/en/' },
+  { id: 'about', labelRo: 'Despre Noi', labelEn: 'About Us', hrefRo: '/despre-noi/', hrefEn: '/en/about/' },
+  { id: 'services', labelRo: 'Servicii', labelEn: 'Services', hrefRo: '/servicii/', hrefEn: '/en/services/' },
+  { id: 'contact', labelRo: 'Contact', labelEn: 'Contact', hrefRo: '/contact/', hrefEn: '/en/contact/' },
 ]
 
 const languages = [
@@ -35,14 +36,6 @@ export default function Header() {
   useEffect(() => {
     setMounted(true)
   }, [])
-
-  const getLocalizedPath = (href: string) => {
-    if (href === '/') {
-      return isEnglish ? '/en/' : '/'
-    }
-    const normalizedHref = href.startsWith('/') ? href : `/${href}`
-    return isEnglish ? `/en${normalizedHref}` : normalizedHref
-  }
 
   const getNavLabel = (item: NavItem) => {
     return isEnglish ? item.labelEn : item.labelRo
@@ -88,7 +81,7 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => {
-              const href = getLocalizedPath(item.href)
+              const href = isEnglish ? item.hrefEn : item.hrefRo
               const isActive = pathname === href
               return (
                 <Link
@@ -149,7 +142,7 @@ export default function Header() {
 
             {/* CTA Button */}
             <Link
-              href={getLocalizedPath('/contact/')}
+              href={isEnglish ? '/en/contact/' : '/contact/'}
               className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-md transition-colors"
             >
               {currentLang === 'ro' ? 'Sună Acum' : 'Call Now'}
@@ -204,7 +197,7 @@ export default function Header() {
               
               {/* Navigation links */}
               {navigation.map((item) => {
-                const href = getLocalizedPath(item.href)
+                const href = isEnglish ? item.hrefEn : item.hrefRo
                 const isActive = pathname === href
                 return (
                   <Link
@@ -222,7 +215,7 @@ export default function Header() {
                 )
               })}
               <Link
-                href={getLocalizedPath('/contact/')}
+                href={isEnglish ? '/en/contact/' : '/contact/'}
                 className="mx-3 mt-4 inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-md transition-colors"
                 onClick={() => setLangMenuOpen(false)}
               >
