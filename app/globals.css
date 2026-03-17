@@ -37,22 +37,22 @@
     min-height: 100vh;
   }
   
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('/logo-broz.png');
-    background-size: 400px;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.15;
-    z-index: -1;
-    pointer-events: none;
-    mix-blend-mode: multiply;
-  }
+   body::before {
+     content: "";
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-image: url('/broz/logo-broz.png');
+     background-size: 400px;
+     background-position: center;
+     background-repeat: no-repeat;
+     opacity: 0.15;
+     z-index: -1;
+     pointer-events: none;
+     mix-blend-mode: multiply;
+   }
 }
 
 *, *::before, *::after {
