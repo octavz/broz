@@ -65,9 +65,9 @@ export default function Header() {
     return (
       <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
         <nav className="container">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <div className="h-10 w-10 bg-gray-200 rounded"></div>
+          <div className="flex justify-between items-center h-24">
+            <div className="flex items-center space-x-4">
+              <div className="h-16 w-16 bg-gray-200 rounded"></div>
               <div className="h-6 w-48 bg-gray-200 rounded"></div>
             </div>
           </div>
@@ -81,19 +81,19 @@ export default function Header() {
   return (
     <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
       <nav className="container">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
-          <Link href={isEnglish ? '/en/' : '/'} className="flex items-center space-x-3">
-            <div className="relative h-10 w-10">
+          <Link href={isEnglish ? '/en/' : '/'} className="flex items-center space-x-4">
+            <div className="relative h-16 w-16">
               <Image
                 src="/logo-broz.png"
                 alt="Centrala Termică Service"
-                width={40}
-                height={40}
+                width={64}
+                height={64}
                 className="object-contain"
               />
             </div>
-            <span className="text-xl font-bold text-primary-700 hidden sm:block">
+            <span className="text-2xl font-bold text-primary-700 hidden sm:block">
               Centrala Termică Service
             </span>
           </Link>
