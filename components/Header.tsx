@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 
@@ -85,12 +84,12 @@ export default function Header() {
           {/* Logo */}
           <Link href={isEnglish ? '/en/' : '/'} className="flex items-center space-x-4">
             <div className="relative h-16 w-16 overflow-hidden rounded">
-              <Image
+              <img
                 src="/logo-broz.png"
                 alt="Centrala Termică Service"
-                fill
+                width={64}
+                height={64}
                 className="object-contain object-top"
-                style={{ objectPosition: 'center top' }}
               />
             </div>
             <span className="text-2xl font-bold text-primary-700 hidden sm:block">
