@@ -1,13 +1,14 @@
 {
   "name": "broz",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Centrala Termică Service - Heating Central Repair and Maintenance",
+  "homepage": "https://octavz.github.io/broz",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "next build && next export -o out"
   },
   "keywords": [],
   "author": "",
