@@ -33,9 +33,9 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-700 to-primary-900 text-white">
-        <div className="container py-12 md:py-16 lg:py-20">
+       {/* Hero Section */}
+       <section className="bg-gradient-to-br from-primary-700 to-primary-900 text-white">
+         <div className="container py-8 md:py-10 lg:py-12">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
               {homepage.title}
