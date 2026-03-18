@@ -31,8 +31,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const isProduction = process.env.NODE_ENV === 'production'
+  
   return (
-    <html lang="ro">
+    <html 
+      lang="ro" 
+      style={{
+        '--bg-logo-url': isProduction ? "url('/broz/logo-broz.png')" : "url('/logo-broz.png')"
+      } as React.CSSProperties}
+    >
       <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">

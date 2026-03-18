@@ -88,7 +88,7 @@ export default function Header() {
           <Link href={isEnglish ? '/en/' : '/'} className="flex items-center space-x-4">
             <div className="relative h-16 w-16 overflow-hidden rounded">
               <img
-                src="/broz/logo-broz.png"
+                src={process.env.NODE_ENV === 'production' ? '/broz/logo-broz.png' : '/logo-broz.png'}
                 alt="Centrala Termică Service"
                 width={64}
                 height={64}

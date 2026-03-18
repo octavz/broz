@@ -45,7 +45,7 @@
      transform: translate(-50%, -50%);
      width: 400px;
      height: 400px;
-     background-image: url('/broz/logo-broz.png');
+     background-image: var(--bg-logo-url);
      background-size: contain;
      background-position: center;
      background-repeat: no-repeat;
