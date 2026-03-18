@@ -36,24 +36,28 @@
     position: relative;
     min-height: 100vh;
   }
+   
+  main {
+    position: relative;
+  }
   
-   body::before {
-     content: "";
-     position: absolute;
-     top: 50vh;
-     left: 50vw;
-     transform: translate(-50%, -50%);
-     width: 400px;
-     height: 400px;
-     background-image: var(--bg-logo-url);
-     background-size: contain;
-     background-position: center;
-     background-repeat: no-repeat;
-     opacity: 0.15;
-     z-index: -1;
-     pointer-events: none;
-     mix-blend-mode: multiply;
-   }
+  main::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background-image: var(--bg-logo-url);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: -1;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
 }
 
 *, *::before, *::after {
