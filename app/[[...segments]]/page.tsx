@@ -1,11 +1,63 @@
 import type { Metadata } from 'next'
 
+import fs from 'node:fs'
+import path from 'node:path'
+
 import Container from '@/components/Container'
 import MarkdownRenderer from '@/components/MarkdownRenderer'
 import { getAllMarkdown, getMarkdownBySlug } from '@/lib/markdown'
 
 type Params = {
   segments?: string[]
+}
+
+type Locale = 'ro' | 'en'
+
+type SiteMetadataJson = {
+  title?: string | { default?: string; template?: string }
+  description?: string
+}
+
+const DEFAULT_RO_SITE_METADATA: SiteMetadataJson = {
+  title: {
+    default: 'Centrala Termică Service - Reparații și Mentenanță',
+    template: '%s | Centrala Termică Service',
+  },
+  description: 'Servicii profesionale de reparații, mentenanță și instalare de centrale termice.',
+}
+
+function readSiteMetadata(locale: Locale): SiteMetadataJson {
+  const safeReadJson = (p: string): SiteMetadataJson | null => {
+    try {
+      const raw = fs.readFileSync(p, 'utf-8')
+      if (!raw || raw.trim().length === 0) return null
+      return JSON.parse(raw) as SiteMetadataJson
+    } catch {
+      return null
+    }
+  }
+
+  const base = process.cwd()
+  const primaryPath = path.join(base, 'content', locale, 'metadata.json')
+  const roPath = path.join(base, 'content', 'ro', 'metadata.json')
+
+  const primary = safeReadJson(primaryPath)
+  const ro = locale === 'ro' ? null : safeReadJson(roPath)
+
+  const title = primary?.title ?? ro?.title ?? DEFAULT_RO_SITE_METADATA.title
+  const description = primary?.description ?? ro?.description ?? DEFAULT_RO_SITE_METADATA.description
+
+  return {
+    title,
+    description,
+  }
+}
+
+function getDefaultTitle(meta: SiteMetadataJson): string | undefined {
+  if (!meta.title) return undefined
+  if (typeof meta.title === 'string') return meta.title
+  if (typeof meta.title === 'object' && typeof meta.title.default === 'string') return meta.title.default
+  return undefined
 }
 
 function parseRoute(segments?: string[]) {
@@ -54,10 +106,19 @@ export async function generateMetadata({
   const resolved = await params
   const { locale, slug } = parseRoute(resolved.segments)
 
+  const siteMeta = readSiteMetadata(locale)
+  const siteTitle = getDefaultTitle(siteMeta)
+  const siteDescription = siteMeta.description
+
   const page = await getMarkdownBySlug(slug, locale)
 
-  const title = page?.title || (locale === 'en' ? 'Page Not Found' : 'Pagina nu a fost gasita')
-  const description = page?.excerpt || page?.description || undefined
+  const isHome = slug === 'index'
+
+  const title = isHome
+    ? siteTitle
+    : (page?.title ?? siteTitle ?? (locale === 'en' ? 'Page Not Found' : 'Pagina nu a fost gasita'))
+
+  const description = isHome ? siteDescription : (page?.excerpt || page?.description || siteDescription)
 
   return {
     title,
@@ -101,8 +162,8 @@ export default async function Page({ params }: PageProps) {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
                 {page.title}
               </h1>
-              <div className="text-lg md:text-xl text-primary-100 mb-6 md:mb-8 leading-relaxed prose-invert max-w-3xl mx-auto">
-                <MarkdownRenderer content={excerpt} />
+              <div className="text-lg md:text-xl mb-6 md:mb-8 leading-relaxed max-w-3xl mx-auto">
+                <MarkdownRenderer content={excerpt} invert />
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
@@ -155,7 +216,7 @@ export default async function Page({ params }: PageProps) {
               <h2 className="text-3xl font-bold mb-4">
                 {isEnglish ? 'Need urgent intervention?' : 'Ai nevoie de interventie urgenta?'}
               </h2>
-              <p className="text-xl text-primary-100 mb-8">
+              <p className="text-xl text-primary-200 mb-8">
                 {isEnglish
                   ? 'Contact us now to schedule a technician. We serve Bucharest and Ilfov.'
                   : 'Contacteaza-ne imediat pentru a programa un tehnician. Servim Bucuresti si Ilfov.'}

@@ -22,6 +22,9 @@ function normalizePath(p: string) {
 }
 
 test.describe('Navigation Tests', () => {
+  // Titles vary by page/locale; just ensure we're on a real page with a meaningful title
+  const expectedTitle = /(Centrala|Heat Boiler|Servicii|Services)/;
+
   const routes = [
     { path: '/', locale: 'Romanian homepage' },
     { path: '/en', locale: 'English homepage' },
@@ -34,7 +37,7 @@ test.describe('Navigation Tests', () => {
   for (const { path, locale } of routes) {
     test(`Check page renders correctly: ${path} (${locale})`, async ({ page }) => {
       await page.goto(path);
-      await expect(page).toHaveTitle(/Centrala/); // Adjust based on expected title
+      await expect(page).toHaveTitle(expectedTitle);
       await expect(page.locator('body')).toBeVisible();
       await expect(page.getByRole('heading', { name: /^404$/ })).toHaveCount(0);
     });
@@ -65,7 +68,7 @@ test.describe('Navigation Tests', () => {
 
       const response = await page.goto(href);
       if (response) expect(response.status()).toBeLessThan(400);
-      await expect(page).toHaveTitle(/Centrala/);
+      await expect(page).toHaveTitle(expectedTitle);
       await expect(page.locator('body')).toBeVisible();
       await expect(page.getByRole('heading', { name: /^404$/ })).toHaveCount(0);
 
@@ -97,7 +100,7 @@ test.describe('Navigation Tests', () => {
 
       const response = await page.goto(href);
       if (response) expect(response.status()).toBeLessThan(400);
-      await expect(page).toHaveTitle(/Centrala/);
+      await expect(page).toHaveTitle(expectedTitle);
       await expect(page.locator('body')).toBeVisible();
       await expect(page.getByRole('heading', { name: /^404$/ })).toHaveCount(0);
 
@@ -119,7 +122,7 @@ test.describe('Navigation Tests', () => {
     if (enHref) {
       const response = await page.goto(enHref);
       if (response) expect(response.status()).toBeLessThan(400);
-      await expect(page).toHaveTitle(/Centrala/);
+      await expect(page).toHaveTitle(expectedTitle);
       expect(page.url()).toContain('/en');
     }
 
@@ -134,7 +137,7 @@ test.describe('Navigation Tests', () => {
       expect(roHref.startsWith('/en')).toBeFalsy();
       const response = await page.goto(roHref);
       if (response) expect(response.status()).toBeLessThan(400);
-      await expect(page).toHaveTitle(/Centrala/);
+      await expect(page).toHaveTitle(expectedTitle);
       expect(page.url()).not.toContain('/en');
     }
   });

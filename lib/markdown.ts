@@ -1,8 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
 
 export interface MarkdownData {
   title: string
@@ -86,12 +84,4 @@ export async function getMarkdownBySlug(slug: string, lang?: string): Promise<Ma
   return allData.find(data => data.slug === slug) || null
 }
 
-export async function markdownToHtml(markdown: string): Promise<string> {
-  const result = await remark().use(html).process(markdown)
-  return String(result)
-}
-
-export function getPageBySlug(slug: string): string {
-  const normalizedSlug = slug.endsWith('/') ? slug.slice(0, -1) : slug
-  return normalizedSlug.split('/').pop() || 'index'
-}
+// Note: keep this module focused on loading markdown data for pages.

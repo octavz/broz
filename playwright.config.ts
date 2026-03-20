@@ -1,4 +1,5 @@
 import { defineConfig } from '@playwright/test';
+import path from 'node:path';
 
 export default defineConfig({
   testDir: './tests',
@@ -11,8 +12,11 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   webServer: {
+    // Ensure the dev server starts from this project even if tests
+    // are invoked from a parent directory.
     command: 'npm run dev',
+    cwd: path.resolve(__dirname),
     port: 3000,
-    reuseExistingServer: false,
+    reuseExistingServer: true,
   },
 });

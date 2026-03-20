@@ -1,0 +1,34 @@
+{
+  "title": {
+    "default": "Centrala Termică Service - Reparații și Mentenanță",
+    "template": "%s | Centrala Termică Service"
+  },
+  "description": "Servicii profesionale de reparații, mentenanță și instalare de centrale termice.",
+  "keywords": [
+    "centrală termică",
+    "reparații centrale termice",
+    "întreținere centrală",
+    "Ariston",
+    "Viessmann",
+    "Ferroli",
+    "Motan",
+    "București",
+    "Ilfov"
+  ],
+  "authors": [
+    { "name": "Centrala Termică Service" }
+  ],
+  "creator": "Centrala Termică Service",
+  "openGraph": {
+    "type": "website",
+    "locale": "ro_RO",
+    "url": "https://centralatermicaservice.ro",
+    "siteName": "Centrala Termică Service",
+    "title": "Centrala Termică Service - Reparații și Mentenanță",
+    "description": "Servicii profesionale de reparații, mentenanță și instalare de centrale termice."
+  },
+  "robots": {
+    "index": true,
+    "follow": true
+  }
+}

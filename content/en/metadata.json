@@ -1,0 +1,34 @@
+{
+  "title": {
+    "default": "Heat Boiler Service - Repairs and Maintenance",
+    "template": "%s | Heat Boiler Service"
+  },
+  "description": "Professional services for heat boiler repairs, maintenance, and installation.",
+  "keywords": [
+    "heat boiler",
+    "heat boiler repairs",
+    "heat boiler maintenance",
+    "Ariston",
+    "Viessmann",
+    "Ferroli",
+    "Motan",
+    "Bucharest",
+    "Ilfov"
+  ],
+  "authors": [
+    { "name": "Heat Boiler Service" }
+  ],
+  "creator": "Heat Boiler Service",
+  "openGraph": {
+    "type": "website",
+    "locale": "en_US",
+    "url": "https://centralatermicaservice.ro/en",
+    "siteName": "Heat Boiler Service",
+    "title": "Heat Boiler Service - Repairs and Maintenance",
+    "description": "Professional services for heat boiler repairs, maintenance, and installation."
+  },
+  "robots": {
+    "index": true,
+    "follow": true
+  }
+}

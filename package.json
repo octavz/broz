@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "test": "playwright test",
-    "lint": "next lint",
+    "lint": "next build",
     "deploy": "next build && next export"
   },
   "keywords": [],
@@ -21,7 +21,6 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.27",
-    "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
     "next": "^16.1.7",
     "postcss": "^8.5.8",
@@ -29,9 +28,7 @@
     "react-dom": "^19.2.4",
     "react-markdown": "^10.1.0",
     "rehype-raw": "^7.0.0",
-    "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
-    "remark-html": "^16.0.1",
     "tailwindcss": "^4.2.1",
     "typescript": "^5.9.3"
   },

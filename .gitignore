@@ -5,6 +5,10 @@ node_modules/
 .next/
 out/
 
+# Playwright
+test-results/
+playwright-report/
+
 # Logs
 npm-debug.log*
 yarn-debug.log*
