@@ -3,7 +3,7 @@ title: "Contact - Centrala Termică Service"
 description: "Contactează-ne pentru reparații, întreținere sau instalare de centrale termice. Telefon, email sau formular. Servicii în București și Ilfov."
 ---
 
-## Contactează-Ne
+## Contactează-ne
 
 Suntem aici pentru a te ajuta cu orice nevoă ai legată de centrala termică. Contactează-ne pentru:
 
