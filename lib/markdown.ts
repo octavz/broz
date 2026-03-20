@@ -1,5 +1,5 @@
-import fs from 'fs'
-import path from 'path'
+import fs from 'node:fs'
+import path from 'node:path'
 import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
@@ -10,7 +10,7 @@ export interface MarkdownData {
   content: string
   excerpt?: string
   date?: string
-  [key: string]: any
+  [key: string]: string | undefined
 }
 
 const contentDirectory = path.join(process.cwd(), 'content')
