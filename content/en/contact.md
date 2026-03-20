@@ -16,8 +16,12 @@ We're here to help you with any heating central needs. Contact us for:
 ### Contact Information
 
 **Main phone:**  
-📞 **0722 123 456**  
-(Available for scheduling, information, and emergencies)
+[✉️ Email us to request a call](mailto:contact@centralatermicaservice.ro?subject=Phone%20call%20request&body=Please%20call%20me%20at%20phone%20number%3A%200722123456.%0AAdditional%20message%3A%20)
+(Quick email for phone call request)
+
+**WhatsApp chat:**  
+[💬 WhatsApp us](https://wa.me/40722123456)  
+(Quick replies during business hours)
 
 **Emergency phone:**  
 🚨 **0722 999 888**  

@@ -15,25 +15,25 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@tailwindcss/postcss": "^4.2.1",
+    "@tailwindcss/postcss": "^4.2.2",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.27",
     "gray-matter": "^4.0.3",
-    "next": "^16.1.7",
+    "next": "^16.2.0",
     "postcss": "^8.5.8",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-markdown": "^10.1.0",
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.1",
-    "tailwindcss": "^4.2.1",
+    "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "playwright": "^1.58.2",
-    "@playwright/test": "^1.58.2"
+    "@playwright/test": "^1.58.2",
+    "playwright": "^1.58.2"
   }
 }

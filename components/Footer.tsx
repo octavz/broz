@@ -61,11 +61,21 @@ export default function Footer() {
                 ? 'Professional repair, maintenance and installation services for heating centrals. Specialized in Ariston, Viessmann, Ferroli, Motan.'
                 : 'Servicii profesionale de reparații, mentenanță și instalare de centrale termice. Specializați în Ariston, Viessmann, Ferroli, Motan.'}
             </p>
-            <div className="flex space-x-4">
-              {/* Social placeholders - can add real links later */}
-              <span className="text-secondary-400">{isEnglish ? 'Facebook' : 'Facebook'}</span>
-              <span className="text-secondary-400">{isEnglish ? 'Google' : 'Google'}</span>
-            </div>
+             <div className="flex space-x-5 items-center mt-2">
+               {/* Social/Contact links */}
+               <a href="https://facebook.com/centralatermica" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-primary-400 text-secondary-400 transition-colors">
+                 <svg className="inline h-5 w-5 mr-1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.675 0h-21.35C.597 0 0 .592 0 1.326v21.348C0 23.406.597 24 1.325 24H12.82v-9.294H9.692V11.01h3.128V8.414c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.462.099 2.797.142v3.24l-1.918.001c-1.504 0-1.797.716-1.797 1.764v2.314h3.587l-.467 3.696h-3.12V24h6.116C23.403 24 24 23.406 24 22.674V1.326C24 .592 23.403 0 22.675 0"/></svg>
+                 Facebook
+               </a>
+               <a href="https://wa.me/40722123456" target="_blank" rel="noopener noreferrer" aria-label="Whatsapp" className="hover:text-green-400 text-secondary-400 transition-colors">
+                 <svg className="inline h-5 w-5 mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M12.004 2.002a9.927 9.927 0 0 0-7.033 2.912A9.927 9.927 0 0 0 2.06 12.001c0 1.737.455 3.397 1.322 4.892L2 22l5.237-1.357a10.029 10.029 0 0 0 4.767 1.22h.001c5.513 0 9.984-4.471 9.984-9.984a9.96 9.96 0 0 0-2.916-7.03 9.93 9.93 0 0 0-7.062-2.837zm.001 1.823c2.166 0 4.205.844 5.732 2.371a8.113 8.113 0 0 1 2.36 5.723c0 4.484-3.648 8.13-8.123 8.13a8.16 8.16 0 0 1-4.027-1.036l-.288-.163-3.108.806.827-3.034-.187-.311A8.077 8.077 0 0 1 3.887 12c0-4.484 3.65-8.127 8.118-8.127zm-4.016 4.28a.699.699 0 0 0-.7.7c0 .402.011.734.03.97.122 1.467.689 2.709 1.637 3.733 1.09 1.186 2.161 1.934 3.437 2.288.177.05.338.08.49.08.212 0 .427-.082.598-.253l.859-.784c.145-.145.191-.349.149-.521a.666.666 0 0 0-.222-.356 6.157 6.157 0 0 1-.383-.401c-.274-.333-.36-.54-.547-.981a.482.482 0 0 0-.438-.319h-.002c-.12 0-.234.045-.321.127l-.471.46a4.77 4.77 0 0 1-1.727-2.238l.471-.447a.484.484 0 0 0 .125-.635 5.654 5.654 0 0 1-.547-.965.479.479 0 0 0-.44-.28z"/></svg>
+                 WhatsApp
+               </a>
+               <a href="tel:0722123456" className="hover:text-primary-400 text-secondary-400 transition-colors" aria-label="Telefon">
+                 <svg className="inline h-5 w-5 mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M17.707 14.293l-3.024-3.024a1 1 0 0 0-1.414 0l-1.293 1.293A9.03 9.03 0 0 1 6.438 9.024l1.293-1.293a1 1 0 0 0 0-1.415l-3.023-3.021a1 1 0 0 0-1.414 0l-.707.707C2.458 6.149 2 7.068 2 8c0 7.18 5.82 13 13 13 .931 0 1.85-.458 2.695-1.293l.708-.707a1 1 0 0 0 0-1.414z"/></svg>
+                 Telefon
+               </a>
+             </div>
           </div>
 
           {/* Services */}

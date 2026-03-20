@@ -23,9 +23,12 @@ export default function ContactForm() {
       // Simulate form submission - in production, replace with actual API endpoint
       await new Promise(resolve => setTimeout(resolve, 1000))
       
-      // Log form data for now
-      console.log('Form submitted:', data)
-      
+      // Construct mailto URL
+      const mailto =
+        `mailto:contact@centralatermicaservice.ro` +
+        `?subject=Solicitare contact - ${data.phone ? encodeURIComponent(data.phone.toString()) : ''}${data.subject ? ' - ' + encodeURIComponent(data.subject.toString()) : ''}` +
+        `&body=Nume:%20${encodeURIComponent(data.name ? data.name.toString() : '')}%0ATelefon:%20${encodeURIComponent(data.phone ? data.phone.toString() : '')}%0AMesaj:%20${encodeURIComponent(data.message ? data.message.toString() : '')}`
+      window.location.href = mailto
       setSubmitStatus('success')
       e.currentTarget.reset()
     } catch (error) {

@@ -16,6 +16,7 @@ const navigation: NavItem[] = [
   { id: 'home', labelRo: 'Acasă', labelEn: 'Home', hrefRo: '/', hrefEn: '/en/' },
   { id: 'about', labelRo: 'Despre Noi', labelEn: 'About Us', hrefRo: '/despre-noi/', hrefEn: '/en/about/' },
   { id: 'services', labelRo: 'Servicii', labelEn: 'Services', hrefRo: '/servicii/', hrefEn: '/en/services/' },
+  { id: 'modele', labelRo: 'Modele', labelEn: 'Models', hrefRo: '/modele/', hrefEn: '/en/modele/' },
   { id: 'contact', labelRo: 'Contact', labelEn: 'Contact', hrefRo: '/contact/', hrefEn: '/en/contact/' },
 ]
 

@@ -4,9 +4,9 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 
 interface MarkdownRendererProps {
-  content: string;
-  invert?: boolean;
-  className?: string;
+  readonly content: string;
+  readonly invert?: boolean;
+  readonly className?: string;
 }
 
 export default function MarkdownRenderer({ content, invert = false, className }: MarkdownRendererProps) {

@@ -1,6 +1,6 @@
 interface ContainerProps {
-  children: React.ReactNode
-  className?: string
+  readonly children: React.ReactNode
+  readonly className?: string
 }
 
 export default function Container({ children, className = '' }: ContainerProps) {

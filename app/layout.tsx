@@ -12,7 +12,8 @@ export default function RootLayout({
   
   return (
     <html 
-      lang="ro" 
+      lang="ro"
+      data-scroll-behavior="smooth"
       style={{
         '--bg-logo-url': isProduction ? "url('/broz/logo-broz.png')" : "url('/logo-broz.png')"
       } as React.CSSProperties}

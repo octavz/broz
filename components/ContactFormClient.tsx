@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 interface ContactFormClientProps {
-  lang: 'ro' | 'en'
+  readonly lang: 'ro' | 'en'
 }
 
 export default function ContactFormClient({ lang }: ContactFormClientProps) {
@@ -24,8 +24,15 @@ export default function ContactFormClient({ lang }: ContactFormClientProps) {
     }
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      console.log('Form submitted:', data)
+      // Construct mailto URL (EN/RO) - use template literals everywhere for lint compliance
+      const subject = lang === "ro"
+        ? `Solicitare contact - ${data.phone ? encodeURIComponent(`${data.phone}`) : ""}${data.subject ? ` - ${encodeURIComponent(`${data.subject}`)}` : ""}`
+        : `Contact request - ${data.phone ? encodeURIComponent(`${data.phone}`) : ""}${data.subject ? ` - ${encodeURIComponent(`${data.subject}`)}` : ""}`;
+      const body = lang === "ro"
+        ? `Nume: ${encodeURIComponent(`${data.name ?? ""}`)}%0ATelefon: ${encodeURIComponent(`${data.phone ?? ""}`)}%0AMesaj: ${encodeURIComponent(`${data.message ?? ""}`)}`
+        : `Name: ${encodeURIComponent(`${data.name ?? ""}`)}%0APhone: ${encodeURIComponent(`${data.phone ?? ""}`)}%0AMessage: ${encodeURIComponent(`${data.message ?? ""}`)}`;
+      const mailto = `mailto:contact@centralatermicaservice.ro?subject=${subject}&body=${body}`;
+      window.location.href = mailto;
       setSubmitStatus('success')
       e.currentTarget.reset()
     } catch (error) {
@@ -152,10 +159,10 @@ export default function ContactFormClient({ lang }: ContactFormClientProps) {
           >
             {isSubmitting ? (
               <>
-                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                </svg>
+              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" role="img" aria-label="Loading spinner">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+              </svg>
                 {lang === 'ro' ? 'Se trimite...' : 'Sending...'}
               </>
             ) : (

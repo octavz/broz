@@ -16,8 +16,12 @@ Suntem aici pentru a te ajuta cu orice nevoă ai legată de centrala termică. C
 ### Informații de Contact
 
 **Telefon principal:**  
-📞 **0722 123 456**  
-(Disponibil pentru programări, informații, și urgențe)
+[✉️ Trimite-ne un email](mailto:contact@centralatermicaservice.ro?subject=Solicitare%20de%20contact%20telefonic&body=Vreau%20s%C4%83%20fiu%20contactat%20telefonic%20la%200722%20123%20456.%20Mesaj%20suplimentar%3A%20)
+(Email rapid pentru solicitare apel telefonic)
+
+**WhatsApp chat:**  
+[💬 Scrie pe WhatsApp](https://wa.me/40722123456)  
+(Primești răspuns rapid în timpul programului)
 
 **Telefon urgențe:**  
 🚨 **0722 999 888**  
